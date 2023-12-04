@@ -1,17 +1,16 @@
+
 fun main() {
     fun part1(input: List<String>): Int {
-        return input.size
-    }
+        fun calculation(string: String): Int {
+            val firstDigit = string.first {it.isDigit()}
+            val lastDigit = string.last {it.isDigit()}
+            return "$firstDigit$lastDigit".toInt()
+        }
 
-    fun part2(input: List<String>): Int {
-        return input.size
+        return input.sumOf { calculation(it) }
     }
-
-    // test if implementation meets criteria from the description, like:
-    val testInput = readInput("Day01_test")
-    check(part1(testInput) == 1)
 
     val input = readInput("Day01")
     part1(input).println()
-    part2(input).println()
+    //part2(input).println()
 }
